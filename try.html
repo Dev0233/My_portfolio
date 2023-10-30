@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        /* Add basic styles to the navigation bar */
+        .navbar {
+            background-color: transparent;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 95px 5px 650px;
+            transition: background-color 0.5s; /* Smooth background color transition */
+        }
+
+        /* Style the links inside the navigation bar */
+        .navbar a {
+            font-size: 16px;
+            text-align: center;
+            font-style: Arial;
+            text-decoration: none;
+            padding: 5px 10px;
+            margin: 0 5px;
+            color: black;
+        }
+
+        .navbar a:hover {
+            color: blueviolet;
+        }
+        /* image in about section */
+        .about-image {
+            display: none;
+            align-items: left;
+            height: 350px;
+            width: 350px; /* Initially, hide the image */
+            padding: 0px;
+        }
+        .about-section-container {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        /* Style for the text in the "About" section */
+        .about-text {
+            text-align: left; /* Align text to the right side */
+            flex: 1; /* Allow the text to take up the available space */
+            padding: 2px 0px 0px 50px;
+        }
+        /* Style the right-side corner image */
+        .right-corner-image {
+            position: fixed;
+            top: 50px; /* Adjust the position as needed */
+            right: 10px; /* Adjust the position as needed */
+        }
+
+        .right-corner-image {
+                position: absolute;
+                top: 50px; /* Adjust the position as needed */
+                right: 10px; /* Adjust the position as needed */
+            }
+
+            .right-corner-image img {
+                width: 300px; /* Adjust the width as needed */
+                height: 300px;
+                padding: 100px 100px;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            .logo {
+                display: flex;
+                align-items: center;
+            }
+
+            .logo img {
+                width: 30px;
+                height: 25px;
+                margin: 5px 0;
+            }
+            /* Add styles for the vertical social media navigation */
+            .social-nav {
+                background-color: transparent;
+                width: 50px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .social-nav a {
+                color: black;
+                text-decoration: none;
+                margin: 10px 0;
+            }
+
+            .social-nav a:hover {
+                color: blueviolet;
+            }
+
+            .social-icon {
+                width: 30px;
+                height: 30px;
+                margin: 5px 0;
+            }
+            .waving-hand {
+                font-size: 36px;
+                display: inline-block;
+                animation: wave 1s infinite;
+                transform-origin: 70% 70%;
+            }
+
+        @keyframes wave {
+            0%, 100% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(20deg);
+            }
+            50% {
+                transform: rotate(0deg);
+            }
+            75% {
+                transform: rotate(-20deg);
+            }
+        }
+            /* CSS */
+            .project-table {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+            }
+
+            .project {
+                width: calc(33.33% - 20px);
+                padding: 20px;
+                border: 1px solid #ccc;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .project img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .project h3 {
+                font-size: 20px;
+                margin-top: 10px;
+            }
+
+            .project p {
+                font-size: 16px;
+                color: #555;
+            }
+
+            .project a {
+                display: inline-block;
+                background-color: #333;
+                color: white;
+                padding: 5px 10px;
+                text-decoration: none;
+                border-radius: 5px;
+                margin-top: 10px;
+            }
+            /* CSS */
+            #experience {
+                    padding: 50px 20px 0px 200px;
+                    text-align: center;
+                }
+
+                .skills-table {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    grid-gap: 20px;
+                }
+
+                .skill {
+                    text-align: center;
+                }
+
+                .circle-image {
+                    width: 135px;
+                    height: 135px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border: 2px solid #fff; /* To make the circular image border */
+                }
+
+                .circle-image img {
+                    max-width: 100%;
+                    max-height: 100%;
+                }
+
+                .center-image {
+                    grid-column: 3 / 3; /* Place this image in the center of the 2x3 grid */
+                    grid-row: 3 / 3;
+                }
+
+            #contact table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            #contact th, #contact td {
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+            }
+
+            #contact th {
+                background-color: #f2f2f2;
+            }
+
+
+    /* #style-for-headings  */
+        h2 {
+            font-size: 25px;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        h1 {
+            font-size: 55px;
+            text-align: left;
+            font-family: "Times New Roman", Times, serif;
+        }
+        h2 {
+            font-size: 30px;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            text-decoration:underline ;
+        }
+        h3{
+            font-size: 25px;
+            text-align: left;
+            font-family: "Times New Roman", Times, serif;
+
+
+        }
+        h4{
+            font-size: 25px;
+            text-align: left;
+            font-family: "Times New Roman", Times, serif;
+            padding: 0px 0px 0px 500px;
+        }
+        h5{
+            font-size: 25px;
+            text-align: left;
+            font-family: "Times New Roman", Times, serif;
+
+
+        }
+        p{
+            font-size: 20px;
+            text-align: left;
+            font-family: "Times New Roman", Times, serif;
+        }
+        /* to make space in fornt space */
+        .line-with-space {
+                margin: 7em 0; /* Adjust the margin to control the space (7em for 7 lines) */
+    
+            }
+
+        /* style to change the strings one by one */
+        #headingContainer {
+            display: inline-block;
+            border: 1px solid white;
+            padding: 10px;
+        }
+        
+        #changingHeading {
+            font-size: 24px;
+            font-weight: bold;
+            color: blue;
+        }
+        #changingHeading {
+            font-size: 24px;
+            font-weight: bold;
+            color: blue;
+        }
+
+        /* Style for the button */
+        .scroll-button {
+            background-color: black;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 10px; /* Adding rounded corners to the button */
+        }
+        /* CSS */
+            .download-button {
+                background-color: black;
+                color: white;
+                padding: 10px 20px 10px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: block; /* Set display to "block" to ensure the button appears below the text */
+                font-size: 16px;
+                margin-top: 20px; /* Add margin-top to create space between text and button */
+                border: none;
+                border-radius: 5px; /* Adding rounded corners to the button */
+                cursor: pointer;
+                size: auto;
+            }
+
+
+        /* Add responsive design for small screens */
+        @media screen and (max-width: 600px) {
+            .download-button {
+                margin: 20px 0; /* Adjust the margin on small screens as needed */
+            }
+        }
+
+        /* Style the sections with padding to account for the fixed navbar */
+        section {
+            padding: 20px 20px 20px 80px;
+        }
+
+        #index {
+            background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+            padding-left: 100px ;
+        }
+
+        #home {
+            background-image: linear-gradient(-225deg, #edfefd 0%, #D7FFFE 100%);
+        }
+
+        #about {
+            background-image: linear-gradient(-225deg, #edfefd 0%, #D7FFFE 100%);
+        }
+
+        #projects {
+            background-image: linear-gradient(-225deg, #edfefd 0%, #D7FFFE 100%);
+        }
+
+        #experience {
+            background-image: linear-gradient(-225deg, #edfefd 0%, #D7FFFE 100%);
+        }
+
+        #contact {
+            background-image: linear-gradient(-225deg, #edfefd 0%, #D7FFFE 100%);
+        }
+
+        /* Add responsive design for small screens */
+        @media screen and (max-width: 600px) {
+            .navbar {
+                flex-direction: column;
+            }
+            .navbar a {
+                width: 100%;
+                text-align: center;
+                padding: 10px;
+                margin: 5px 0;
+            }
+        }
+
+        /* Add a class for the sticky (visible) navbar */
+        .sticky {
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">
+        <img src="DM.png" alt="Logo">
+    </div>
+<div class="social-nav">
+    <a href="https://www.instagram.com/" target="_blank">
+        <img src="instagram.png" class="social-icon" alt="Instagram">
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank">
+        <img src="github.png" class="social-icon" alt="GitHub">
+    </a>
+    <a href="https://twitter.com/" target="_blank">
+        <img src="twitter.png" class="social-icon" alt="Twitter">
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank">
+        <img src="linkedin.png" class="social-icon" alt="LinkedIn">
+    </a>
+</div>
+
+<div class="navbar">
+    <a href="#index">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+</div>
+
+<section id="index">
+    <div class="right-corner-image">
+        <img src="profile-modified.png" alt="Right Corner Image">
+    </div>
+    <div class="line-with-space"></div>
+    <h5><span class="waving-hand">👋</span> Hey</h5>
+    <h1>I Am Devashish </h1>
+    <h5>I am <span id="changingHeading">frontend dev</span></h5>
+    <p>I focus on devloping user friendly web applications that meet the client's requirements,<br> with attention to detail, scalability, and performance.</p>
+    <h5><button class="scroll-button" onclick="scrollToAbout()">About Me ></button></h5>
+    
+</section>
+<section id="about">
+    <h2>About Me</h2>
+    <h4>Devashish Mishra</h4>
+    <div class="about-section-container">
+        <img class="about-image" src="my.png" alt="About Image">
+        <div class="about-text">
+            <h5>🚀 Fueling Innovation Through Code in Kanpur, India!</h5>
+            <p>Hey there, I'm a driven and enthusiastic Full-Stack developer hailing from the vibrant city of Kanpur, India. My journey into the realm of web development commenced during my undergraduate days at PSIT, where I fell head over heels for the art of crafting digital experiences.</p>
+            <p>🎓 Armed with a passion for code and an insatiable curiosity, I embarked on this thrilling voyage in my first year at college. It's been a journey teeming with the joys of unraveling the intricate web of technologies, from front-end finesse to back-end brilliance.</p>
+            <p>🌟 My heart beats for crafting more than just code – I'm on a mission to engineer not just websites and applications, but experiences. I'm all about the alchemy of blending aesthetics, functionality, and user-centric designs to create digital wonders that leave an impact.</p>
+            <p>🌱 Continual growth is the backbone of my career. I thrive on the perpetual quest for knowledge and skills. Every challenge is an opportunity to learn and evolve. Whether it's mastering new frameworks or diving into cutting-edge tech, I'm always eager to push boundaries.</p>
+            <p>💡 Side projects are my playground – a canvas to unleash my creativity. From ideation to execution, I revel in bringing my concepts to life, exploring uncharted territories, and experimenting with innovative solutions.</p>
+            <p>🌐 When I'm not crafting code, you'll find me exploring the latest tech trends, contributing to open-source initiatives, and soaking in the wisdom of the tech community.</p>
+            <p>🚀 Ready to elevate the digital landscape, one line of code at a time!</p>
+        </div>
+        </div>
+    <a href="DevashishMishra_Resume (2).pdf" download>
+        <h3><button class="download-button">Download Resume</button></h3>
+    </a>
+</section>
+
+<section id="projects">
+    <h2>Projects Section</h2>
+    <div class="project-table">
+        <div class="project">
+            <img src="smarthomeautomation.jpg" alt="SmartHome Automation">
+            <h3>SmartHome Automation</h3>
+            <p>In an era defined by innovation and technological advancement, the concept of the traditional home is rapidly evolving. The integration of smart technologies has redefined the way we interact with our living spaces, paving the way for a more convenient, efficient, and interconnected lifestyle. This project aims to introduce a cutting-edge Smart Home Automation System, designed to transform conventional houses into intelligent, responsive, and secure living environments.</p>
+            <a href="https://github.com/Dev0233/Smart-home-automation-system-">Learn more</a>
+        </div>
+        <div class="project">
+            <img src="coadify.jpg" alt="Codify">
+            <h3>Codify</h3>
+            <p>In today's digital age, proficiency in coding has evolved from a specialized skill to an essential competency, influencing every facet of our technologically driven world. "Coadify" is an innovative learning platform poised to revolutionize the way coding education is delivered and absorbed. It is designed to empower aspiring coders, from novices to seasoned enthusiasts, providing a comprehensive, user-friendly, and dynamic environment to learn and master the art of programming.</p>
+            <a href="https://github.com/Dev0233/codify">Learn more</a>
+        </div>
+        <div class="project">
+            <img src="grocerease.png" alt="grocerease">
+            <h3>Grocerease</h3>
+            <p>In a world where convenience and savings are paramount, the task of grocery shopping can be both essential and time-consuming. "Grocerease" emerges as a groundbreaking solution, a dedicated mobile application designed to simplify the shopping experience by offering a comprehensive price comparison platform for grocery items. With its user-friendly interface and powerful functionalities, Grocerease aims to revolutionize the way consumers shop for their everyday essentials, ensuring they make informed decisions while saving time and money.</p>
+            <a href="https://github.com/Dev0233/grocerease">Learn more</a>
+        </div>
+        <div class="project">
+            <img src="pashu.png" alt="Project 4">
+            <h3>Pashu</h3>
+            <p>In a world where convenience and savings are paramount, the task of grocery shopping can be both essential and time-consuming. "Grocerease" emerges as a groundbreaking solution, a dedicated mobile application designed to simplify the shopping experience by offering a comprehensive price comparison platform for grocery items. With its user-friendly interface and powerful functionalities, Grocerease aims to revolutionize the way consumers shop for their everyday essentials, ensuring they make informed decisions while saving time and money.</p>
+            <a href="https://github.com/Dev0233/pashu-The-Animal-Health-Band">Learn more</a>
+        </div>
+    </div>
+</section>
+
+<section id="experience">
+    <h2>Skills</h2>
+    <div class="skills-table">
+        <div class="skill">
+            <div class="circle-image">
+                <img src="c.jpg" alt="Skill 1">
+            </div>
+            <h3>C</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image">
+                <img src="c++.jpg" alt="Skill 2">
+            </div>
+            <h3>C++</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image">
+                <img src="python.jpg" alt="Skill 3">
+            </div>
+            <h3>Python</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image">
+                <img src="html.jpg" alt="Skill 4">
+            </div>
+            <h3>HTML</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image">
+                <img src="css.png" alt="Skill 5">
+            </div>
+            <h3>CSS</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image">
+                <img src="js.png" alt="Skill 5">
+            </div>
+            <h3>Java Script</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image center-image">
+                <img src="arduino.png" alt="Skill 6">
+            </div>
+            <h3>Arduino</h3>
+        </div>
+        <div class="skill">
+            <div class="circle-image center-image">
+                <img src="git.png" alt="Skill 6">
+            </div>
+            <h3>Git</h3>
+        </div>
+    </div>
+</section>
+<section id="contact">
+    <h2>Contact Information</h2>
+    <table>
+        <tr>
+            <th colspan="2">Contact Information</th>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>Devashish Mishra</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>devashishmishra9080@gmail.com</td>
+        </tr>
+        <tr>
+            <th colspan="2">Study Information</th>
+        </tr>
+        <tr>
+            <td>University:</td>
+            <td>Dr. A P J Abdul Kalam Technical University, Uttar Pradesh</td>
+        </tr>
+        <tr>
+            <td>college:</td>
+            <td>Pranveer Singh Institue Of Technology , Kanpur</td>
+        </tr>
+        <tr>
+            <th colspan="2">Study Information</th>
+        </tr>
+        <tr>
+            <td>Field of Study:</td>
+            <td>Computer Science (IOT)</td>
+        </tr>
+        <tr>
+            <td>Any Other Query:</td>
+            <td><textarea id="otherQuery" name="otherQuery" rows="4"></textarea></td>
+        </tr>
+    </table>
+</section>
+
+<script>
+    document.querySelectorAll('.navbar a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetSection = document.getElementById(targetId);
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // JavaScript to make the navbar visible on scroll
+    window.addEventListener('scroll', function () {
+        var navbar = document.querySelector('.navbar');
+        if (window.scrollY > 100) { // Adjust the pixel value as needed
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    });
+    window.addEventListener('scroll', function () {
+    var firstSection = document.getElementById('index');
+    var rightCornerImage = document.querySelector('.right-corner-image');
+
+    if (firstSection && window.scrollY < firstSection.offsetHeight) {
+        rightCornerImage.classList.remove('hidden');
+    } else {
+        rightCornerImage.classList.add('hidden');
+    }
+});
+const strings = [
+            "Frontend Developer",
+            "Backend Developer",
+            "IOT Developer",
+            "Software Developer"
+        ];
+
+        let currentIndex = 0;
+        const interval = 3000; // Change headings every 3 seconds (slower)
+
+        function changeHeading() {
+            const changingHeading = document.getElementById("changingHeading");
+            changingHeading.textContent = strings[currentIndex];
+            currentIndex = (currentIndex + 1) % strings.length;
+        }
+
+        setInterval(changeHeading, interval);
+        function scrollToAbout() {
+            // Scroll to the "About" section when the button is clicked
+            const aboutSection = document.getElementById("about");
+            aboutSection.scrollIntoView({ behavior: "smooth" });
+        }
+        function isInViewport(element) {
+        var rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    // Function to show the "about-image" when it's in the viewport
+    function showAboutImage() {
+        var aboutImage = document.querySelector('.about-image');
+        if (isInViewport(aboutImage)) {
+            aboutImage.style.display = 'block';
+        }
+    }
+
+    // Check for visibility on page load and scroll events
+    window.addEventListener('load', showAboutImage);
+    window.addEventListener('scroll', showAboutImage);
+    </script>
+</body>
+</html>
